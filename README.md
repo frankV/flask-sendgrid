@@ -13,12 +13,12 @@ Installation
 Usage
 -----
 
-    from flask.ext.sendgrid import SendGrid
+    from flask.ext.sendgrid import FlaskSendGrid
 
     app = Flask(__name__)
     app.config['SENDGRID_API_KEY'] = 'your api key'
     app.config['SENDGRID_DEFAULT_FROM'] = 'admin@yourdomain.com'
-    sendgrid = SendGrid(app)
+    sendgrid = FlaskSendGrid(app)
     sendgrid.send_email(
         from_email='someone@yourdomain.com',
         subject='Subject',

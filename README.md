@@ -22,7 +22,7 @@ Usage
     sendgrid.send_email(
         from_email='someone@yourdomain.com',
         subject='Subject',
-	    template_id='some_id',
+        template_id='some_id',
         substitutions={ ':name': 'Peter Piper' },
         to=[{'email': 'someone@somedomain.com'}, {'email': 'someoneelse@someotherdomain.com'}],
         text='Hello World'

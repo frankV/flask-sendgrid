@@ -26,8 +26,9 @@ Usage
         sendgrid = SendGrid(app)
         sendgrid.send_email(
             from_email='someone@yourdomain.com',
-            to=[{'email': 'someoneelse@someotherdomain.com'}],
-            text='Hello World'
+            subject='Subject'
+            to_email='someoneelse@someotherdomain.com',
+            text='Body',
         )
 """
 
@@ -48,7 +49,7 @@ setup(
     py_modules=['flask_sendgrid'],
     zip_safe=False,
     platforms='any',
-    install_requires=['Flask', 'SendGrid'],
+    install_requires=['Flask', 'SendGrid~=3.0'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',

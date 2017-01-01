@@ -34,3 +34,13 @@ class SendGrid(object):
         )
 
         return sg.client.mail.send.post(request_body=mail.get())
+
+        # Use a template if specified. 
+        # See https://github.com/sendgrid/sendgrid-python/blob/master/examples/example_v2.py
+#         if opts.get('template_id', None):
+#             message.add_filter('templates', 'enable', '1')
+#             message.add_filter('templates', 'template_id', opts['template_id'])
+
+#             substitutions = opts.get('substitutions', dict()).items()
+#             for key, value in substitutions:
+#                 message.add_substitution(key, value)

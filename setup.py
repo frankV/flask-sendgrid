@@ -26,30 +26,72 @@ Usage
         sendgrid = SendGrid(app)
         sendgrid.send_email(
             from_email='someone@yourdomain.com',
-            subject='Subject'
             to_email='someoneelse@someotherdomain.com',
+            subject='Subject'
             text='Body',
         )
 """
 
+import sys
+
 from setuptools import setup
+from setuptools.command.test import test as TestCommand
+
+
+def get_requirements(suffix=''):
+    with open('requirements%s.txt' % suffix) as f:
+        rv = f.read().splitlines()
+    return rv
+
+
+def get_version():
+    with open('flask_sendgrid.py', 'r') as fd:
+        for line in fd:
+            if line.startswith('__version__ = '):
+                return line.split()[-1].strip().strip("'")
+
+
+class PyTest(TestCommand):
+
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = [
+            '-xrs',
+            '--cov', '.',
+            '--cov-report', 'term-missing',
+            '--pep8',
+            '--flakes',
+            '--cache-clear'
+        ]
+        self.test_suite = True
+
+    def run_tests(self):
+        import pytest
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
+
+_version = get_version()
 
 
 setup(
     name='Flask-SendGrid',
-    version='0.1.0',
+    version=_version,
     url='http://github.com/frankv/flask-sendgrid',
-    download_url='https://github.com/frankv/flask-sendgrid/tarball/0.1.0',
+    download_url='https://github.com/frankv/flask-sendgrid/tarball/' + _version,
     license='MIT',
     author='Frank Valcarcel',
     author_email='frank@cuttlesoft.com',
     description='Adds SendGrid support to Flask applications',
-    long_description=__doc__ + '\n\n' + open('HISTORY.rst').read(),
+    long_description=open('README.md').read() + '\n\n' + open('HISTORY.rst').read(),
     keywords=['Flask', 'SendGrid', 'email', 'smtp'],
     py_modules=['flask_sendgrid'],
     zip_safe=False,
     platforms='any',
-    install_requires=['Flask', 'SendGrid~=3.0'],
+    install_requires=[
+        'Flask~=0.10.1',
+        'SendGrid~=3.0'],
+    tests_require=get_requirements('-test'),
+    cmdclass={'test': PyTest},
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',

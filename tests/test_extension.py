@@ -20,8 +20,8 @@ class SendGridTest(unittest.TestCase):
 
     def test_fails_no_key(self):
         mail = SendGrid()
-        self.assertRaises(ValueError, mail.send_email)
+        self.assertRaises(TypeError, mail.send_email)
 
     def test_fails_no_sender(self):
         mail = SendGrid()
-        self.assertRaises(ValueError, mail.send_email, key='ABCDEFG')
+        self.assertRaises(TypeError, mail.send_email, key='ABCDEFG')

@@ -29,13 +29,12 @@ class SendGrid(object):
             from_email=Email(from_email or self.default_from),
             subject=subject,
             to_email=Email(to_email),
-            content=Content("text/html", html) if html
-                else Content("text/plain", text),
+            content=Content("text/html", html) if html else Content("text/plain", text),
         )
 
         return sg.client.mail.send.post(request_body=mail.get())
 
-        # Use a template if specified. 
+        # Use a template if specified.
         # See https://github.com/sendgrid/sendgrid-python/blob/master/examples/example_v2.py
 #         if opts.get('template_id', None):
 #             message.add_filter('templates', 'enable', '1')
@@ -44,3 +43,7 @@ class SendGrid(object):
 #             substitutions = opts.get('substitutions', dict()).items()
 #             for key, value in substitutions:
 #                 message.add_substitution(key, value)
+
+
+__version__ = '0.1.2'
+__versionfull__ = __version__

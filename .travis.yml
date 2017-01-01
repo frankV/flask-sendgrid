@@ -1,0 +1,28 @@
+language: python
+python:
+- '2.6'
+- '2.7'
+- '3.4'
+- '3.5'
+- '3.6'
+sudo: false
+cache:
+- pip
+install:
+- pip install -r requirements-test.txt -e .
+- pip install coverage coveralls
+script: py.test --cov flask_sendgrid --cov-report term-missing --pep8 --flakes
+after_success:
+- coveralls
+notifications:
+  slack:
+    rooms:
+      secure: ...
+deploy:
+  provider: pypi
+  user: frankv
+  password:
+    secure: ...
+  on:
+    tags: true
+    repo: frankv/flask-sendgrid

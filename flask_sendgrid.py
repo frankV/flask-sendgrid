@@ -25,6 +25,16 @@ class FlaskSendGrid(object):
         for _ in opts['to']:
             message.add_to(_['email'])
 
+        # Use a template if specified. 
+        # See https://github.com/sendgrid/sendgrid-python/blob/master/examples/example_v2.py
+        if opts.get('template_id', None):
+            message.add_filter('templates', 'enable', '1')
+            message.add_filter('templates', 'template_id', opts['template_id'])
+
+            substitutions = opts.get('substitutions', dict()).items()
+            for key, value in substitutions:
+                message.add_substitution(key, value)
+
         message.set_from(opts.get('from_email', None) or self.default_from)
         message.set_subject(opts['subject'])
 
@@ -33,4 +43,4 @@ class FlaskSendGrid(object):
         elif opts.get('text', None):
             message.set_html(opts['text'])
 
-        client.send(message)
+        return client.send(message)

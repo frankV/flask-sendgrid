@@ -83,14 +83,14 @@ setup(
     author='Frank Valcarcel',
     author_email='frank@cuttlesoft.com',
     description='Adds SendGrid support to Flask applications',
-    long_description=open('README.md').read() + '\n\n' + open('HISTORY.rst').read(),
+    long_description=open('README.rst').read() + '\n\n' + open('HISTORY.rst').read(),
     keywords=['Flask', 'SendGrid', 'email', 'smtp'],
     py_modules=['flask_sendgrid'],
     zip_safe=False,
     platforms='any',
     install_requires=[
-        'Flask~=0.10.1',
-        'SendGrid~=3.0'],
+        'Flask',
+        'SendGrid'],
     tests_require=get_requirements('-test'),
     cmdclass={'test': PyTest},
     classifiers=[

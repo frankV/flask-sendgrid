@@ -56,6 +56,7 @@ class PyTest(TestCommand):
     def finalize_options(self):
         TestCommand.finalize_options(self)
         self.test_args = [
+            '-v',
             '-xrs',
             '--cov', '.',
             '--cov-report', 'term-missing',

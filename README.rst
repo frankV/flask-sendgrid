@@ -28,7 +28,7 @@ Usage
 
 .. code-block:: python
 
-    from flask.ext.sendgrid import SendGrid
+    from flask_sendgrid import SendGrid
     app = Flask(__name__)
     app.config['SENDGRID_API_KEY'] = 'your api key'
     app.config['SENDGRID_DEFAULT_FROM'] = 'admin@yourdomain.com'

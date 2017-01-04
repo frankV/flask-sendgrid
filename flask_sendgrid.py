@@ -67,7 +67,7 @@ class SendGrid(SGMail):
         content = Content("text/html", html) if html else Content("text/plain", text)
         self.add_content(content)
 
-        return self.client.send.post(request_body=self.get())
+        return self.client.mail.send.post(request_body=self.get())
 
     def _extract_emails(self, emails):
         if type(emails[0]) is Email:
@@ -77,5 +77,5 @@ class SendGrid(SGMail):
             for email in emails:
                 yield Email(email['email'])
 
-__version__ = '0.5.12'
+__version__ = '0.5.2'
 __versionfull__ = __version__

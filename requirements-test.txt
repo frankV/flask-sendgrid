@@ -1,3 +1,4 @@
+flask
 pyflakes==1.2.3
 pytest==2.9.2
 pytest-cache==1.0
@@ -7,3 +8,4 @@ pytest-pep8==1.0.6
 pep8==1.7.0
 coverage==4.2
 mock==2.0.0
+coveralls

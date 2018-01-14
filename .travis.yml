@@ -9,7 +9,6 @@ cache:
 - pip
 install:
 - pip install -r requirements-test.txt -e .
-- pip install coveralls
 script: python setup.py test
 after_success:
 - coveralls

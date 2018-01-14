@@ -88,9 +88,7 @@ setup(
     py_modules=['flask_sendgrid'],
     zip_safe=False,
     platforms='any',
-    install_requires=[
-        'Flask',
-        'SendGrid'],
+    install_requires=['SendGrid'],
     tests_require=get_requirements('-test'),
     cmdclass={'test': PyTest},
     classifiers=[

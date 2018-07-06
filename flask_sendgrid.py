@@ -25,14 +25,14 @@ class SendGrid(SGMail):
         super(SGMail, self).__init__()
         self.from_email = None
         self.subject = None
-        self._personalizations = None
-        self._contents = None
-        self._attachments = None
+        self._personalizations = []
+        self._contents = []
+        self._attachments = []
         self._template_id = None
-        self._sections = None
-        self._headers = None
-        self._categories = None
-        self._custom_args = None
+        self._sections = []
+        self._headers = []
+        self._categories = []
+        self._custom_args = []
         self._send_at = None
         self._batch_id = None
         self._asm = None

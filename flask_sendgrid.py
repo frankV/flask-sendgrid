@@ -46,7 +46,7 @@ class SendGrid(SGMail):
         self.api_key = app.config['SENDGRID_API_KEY']
         self.default_from = app.config['SENDGRID_DEFAULT_FROM']
         self.client = SendGridAPIClient(apikey=self.api_key).client
-        
+
     def clear_mail_data(self):
         """Clear mail data before sending a new one. Otherwise, the personalizations and contents attribute
         will de duplicated, and the SendGrid API will return a 400 Bad Request response."""

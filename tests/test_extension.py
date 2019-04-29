@@ -190,7 +190,7 @@ class SendGridTest(unittest.TestCase):
         attachment = Attachment()
         attachment.file_content = FileContent("TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gQ3JhcyBwdW12")
         attachment.file_type = FileType("application/pdf")
-        attachment.file_filename = FileName("balance_001.pdf")
+        attachment.file_name = FileName("balance_001.pdf")
         attachment.disposition = Disposition("attachment")
         attachment.content_id = ContentId("Balance Sheet")
         self.mail.add_attachment(attachment)

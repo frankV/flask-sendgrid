@@ -188,19 +188,19 @@ class SendGridTest(unittest.TestCase):
         self.mail.add_content(Content("text/html", "<html><body>some text here</body></html>"))
 
         attachment = Attachment()
-        attachment.content = "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gQ3JhcyBwdW12"
-        attachment.type = "application/pdf"
-        attachment.filename = "balance_001.pdf"
-        attachment.disposition = "attachment"
-        attachment.content_id = "Balance Sheet"
+        attachment.content = FileContent("TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gQ3JhcyBwdW12")
+        attachment.type = FileType("application/pdf")
+        attachment.filename = FileName("balance_001.pdf")
+        attachment.disposition = Disposition("attachment")
+        attachment.content_id = ContentId("Balance Sheet")
         self.mail.add_attachment(attachment)
 
         attachment2 = Attachment()
-        attachment2.content = "BwdW"
-        attachment2.type = "image/png"
-        attachment2.filename = "banner.png"
-        attachment2.disposition = "inline"
-        attachment2.content_id = "Banner"
+        attachment2.content = FileContent("BwdW")
+        attachment2.type = FileType("image/png")
+        attachment2.filename = FileName("banner.png")
+        attachment2.disposition = Disposition("inline")
+        attachment2.content_id = ContentId("Banner")
         self.mail.add_attachment(attachment2)
 
         self.mail.template_id = "13b8f94f-bcae-4ec6-b752-70d6cb59f932"
@@ -211,6 +211,7 @@ class SendGridTest(unittest.TestCase):
         self.mail.add_header(Header("X-Test1", "test1"))
         self.mail.add_header(Header("X-Test3", "test2"))
 
+        #This can not take a dic until the issue has been resolved. Issue 793 currently unresolved https://github.com/sendgrid/sendgrid-python/issues/793
         self.mail.add_header(Header("X-Test4", "test4"))
 
         self.mail.add_category(Category("May"))

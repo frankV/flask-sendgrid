@@ -45,7 +45,7 @@ class SendGrid(SGMail):
         self.app = app
         self.api_key = app.config['SENDGRID_API_KEY']
         self.default_from = app.config['SENDGRID_DEFAULT_FROM']
-        self.client = SendGridAPIClient(apikey=self.api_key).client
+        self.client = SendGridAPIClient(self.api_key).client
 
     def send_email(self, to_email, subject, from_email=None, html=None, text=None, *args, **kwargs):  # noqa
         if not any([from_email, self.default_from]):

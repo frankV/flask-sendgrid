@@ -230,7 +230,7 @@ class SendGridTest(unittest.TestCase):
         mail_settings = MailSettings()
         mail_settings.bcc_settings = BccSettings(True, BccSettingsEmail("test@example.com"))
         mail_settings.bypass_list_management = BypassListManagement(True)
-        mail_settings.footer_settings = FooterSettings(True, FooterText("Footer Text"), "<html><body>Footer Text</body></html>")
+        mail_settings.footer_settings = FooterSettings(True, FooterText("Footer Text"), FooterHtml("<html><body>Footer Text</body></html>"))
         mail_settings.sandbox_mode = SandBoxMode(True)
         mail_settings.spam_check = SpamCheck(True, 1, "https://spamcatcher.sendgrid.com")
         self.mail.mail_settings = mail_settings

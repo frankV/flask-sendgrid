@@ -238,8 +238,8 @@ class SendGridTest(unittest.TestCase):
         tracking_settings = TrackingSettings()
         tracking_settings.click_tracking = ClickTracking(True, True)
         tracking_settings.open_tracking = OpenTracking(True, OpenTrackingSubstitutionTag("Optional tag to replace with the open image in the body of the message"))
-        tracking_settings.subscription_tracking = SubscriptionTracking(True, "text to insert into the text/plain portion of the message", "<html><body>html to insert into the text/html portion of the message</body></html>", "Optional tag to replace with the open image in the body of the message")
-        tracking_settings.ganalytics = Ganalytics(True, "some source", "some medium", "some term", "some content", "some campaign")
+        tracking_settings.subscription_tracking = SubscriptionTracking(True, SubscriptionText("text to insert into the text/plain portion of the message"), SubscriptionHtml("<html><body>html to insert into the text/html portion of the message</body></html>"), SubscriptionSubstitutionTag("Optional tag to replace with the open image in the body of the message"))
+        tracking_settings.ganalytics = Ganalytics(True, UtmSource("some source"), UtmMedium("some medium"), UtmTerm("some term"), UtmContent("some content"), UtmCampaign("some campaign"))
         self.mail.tracking_settings = tracking_settings
 
         self.mail.reply_to = ReplyTo("test@example.com")

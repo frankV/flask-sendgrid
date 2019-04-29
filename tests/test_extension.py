@@ -148,7 +148,7 @@ class SendGridTest(unittest.TestCase):
 
         self.mail.from_email = Email("test@example.com", "Example User")
 
-        self.mail.subject = "Hello World from the SendGrid Python Library"
+        self.mail.subject = Subject("Hello World from the SendGrid Python Library")
 
         personalization = Personalization()
         personalization.add_to(Email("test@example.com", "Example User"))
@@ -203,7 +203,7 @@ class SendGridTest(unittest.TestCase):
         attachment2.content_id = ContentId("Banner")
         self.mail.add_attachment(attachment2)
 
-        self.mail.template_id = "13b8f94f-bcae-4ec6-b752-70d6cb59f932"
+        self.mail.template_id = TemplateId"13b8f94f-bcae-4ec6-b752-70d6cb59f932")
 
         self.mail.add_section(Section("%section1%", "Substitution Text for Section 1"))
         self.mail.add_section(Section("%section2%", "Substitution Text for Section 2"))
@@ -220,7 +220,7 @@ class SendGridTest(unittest.TestCase):
         self.mail.add_custom_arg(CustomArg("campaign", "welcome"))
         self.mail.add_custom_arg(CustomArg("weekday", "morning"))
 
-        self.mail.send_at = 1443636842
+        self.mail.send_at = SendAt(1443636842)
 
         self.mail.batch_id = BatchId("sendgrid_batch_id")
 

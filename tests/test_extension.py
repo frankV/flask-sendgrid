@@ -211,7 +211,6 @@ class SendGridTest(unittest.TestCase):
         self.mail.add_header(Header("X-Test1", "test1"))
         self.mail.add_header(Header("X-Test3", "test2"))
 
-        #This can not take a dic until the issue has been resolved. Issue 793 currently unresolved https://github.com/sendgrid/sendgrid-python/issues/793
         self.mail.add_header(Header("X-Test4", "test4"))
 
         self.mail.add_category(Category("May"))

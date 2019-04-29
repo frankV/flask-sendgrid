@@ -228,7 +228,7 @@ class SendGridTest(unittest.TestCase):
         self.mail.ip_pool_name = IpPoolName("24")
 
         mail_settings = MailSettings()
-        mail_settings.bcc_settings = BccSettings(True, "test@example.com")
+        mail_settings.bcc_settings = BccSettings(True, BccSettingsEmail("test@example.com"))
         mail_settings.bypass_list_management = BypassListManagement(True)
         mail_settings.footer_settings = FooterSettings(True, "Footer Text", "<html><body>Footer Text</body></html>")
         mail_settings.sandbox_mode = SandBoxMode(True)

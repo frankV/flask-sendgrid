@@ -221,7 +221,7 @@ class SendGridTest(unittest.TestCase):
 
         self.mail.send_at = 1443636842
 
-        self.mail.batch_id = "sendgrid_batch_id"
+        self.mail.batch_id = BatchId("sendgrid_batch_id")
 
         self.mail.asm = Asm(99, [4, 5, 6, 7, 8])
 

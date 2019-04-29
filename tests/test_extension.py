@@ -223,7 +223,7 @@ class SendGridTest(unittest.TestCase):
 
         self.mail.batch_id = "sendgrid_batch_id"
 
-        self.mail.asm = ASM(99, [4, 5, 6, 7, 8])
+        self.mail.asm = Asm(99, [4, 5, 6, 7, 8])
 
         self.mail.ip_pool_name = "24"
 

@@ -203,7 +203,7 @@ class SendGridTest(unittest.TestCase):
         attachment2.content_id = ContentId("Banner")
         self.mail.add_attachment(attachment2)
 
-        self.mail.template_id = TemplateId"13b8f94f-bcae-4ec6-b752-70d6cb59f932")
+        self.mail.template_id = TemplateId("13b8f94f-bcae-4ec6-b752-70d6cb59f932")
 
         self.mail.add_section(Section("%section1%", "Substitution Text for Section 1"))
         self.mail.add_section(Section("%section2%", "Substitution Text for Section 2"))

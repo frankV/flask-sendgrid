@@ -211,7 +211,7 @@ class SendGridTest(unittest.TestCase):
         self.mail.add_header(Header("X-Test1", "test1"))
         self.mail.add_header(Header("X-Test3", "test2"))
 
-        self.mail.add_header({"X-Test4": "test4"})
+        self.mail.add_header(Header("X-Test4", "test4"))
 
         self.mail.add_category(Category("May"))
         self.mail.add_category(Category("2016"))

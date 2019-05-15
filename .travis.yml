@@ -4,7 +4,6 @@ python:
 - '3.4'
 - '3.5'
 - '3.6'
-- '3.7'
 sudo: false
 cache:
 - pip
@@ -13,18 +12,12 @@ install:
 script: python setup.py test
 after_success:
 - coveralls
-notifications:
-  slack:
-    rooms:
-      secure: QGHGe3cVM4fQWDFjmzTnJITO1TIJTqnUT7FJ4pTodiLEGNYHYTDdMUFOLCy9i1X3gCeloRvOuVLwvMax3CY/H/mUpwZ+D/blAZlzM3cNoLJE5V7p1PRg8c2JTDj+MBnG5U7bl4mkxEGDOoQzWqk2A+Te8tIYCKxnwMYpxAmr4Di3t8WxXmMBw5K7yJBlF2wuujiiRTNFOFodzSYw7ESvIGRrRTny3kdEA/uyGxexI7cogdaJK0+023cB+VKwcSjTzewQkIGOG0efv187sq5NEvOHqwI0RE/i/JVSC14ZAH4A3q4fopEk68f0jsegpoGzXMHJGaMa2WgUKtIyF5WLEfdR3T0TewivRu+liMNLbY+9er95dmwAkOZQG5uXTNg/kfMQBKXJwyr6gzUROk7ZlOVJMy4H646+Hzn1832m/Le3rPSSg9B88tld0+xLC9pRgcY0zWeFbgFWV+1ZuhYF5nenco7mgb/Dni7ACNvNWePRz5kkT90APGhbwAYUyu4BkJXaQmMoVyleAofXFkWGnQ0z2fkVudzu6mVmyHqUJH3ERKzzbRIT1IfpiKPtGamJukRCPn70bKPocFqSXFebOGixD4WAQquq6WndVp5yKbm2wUUBqHKbMHH6G9RSKLGmCLA7bEtURnmQJ01rAaCpR7P6OXY01iIPDVz5hNZURkQ=
-    on_success: always
-    on_failure: change
 deploy:
   provider: pypi
   user: frankv
   password:
-    secure: RW7JLQxo2sQLj1fffLsR4Eotcg8A6xapxjUxk0nEy2gp+nvIXpvj0Bv1Ob8X50KVe8LiDguzA7Vk8oobypz6uA5kmOTMrnSdFjGJ9gs2XT50OgsaRWRXzuET888ihAAyisrzaqKudKtnsVjMPpSlYhLIC760n26UvppRAgIi1iZNgI94GhahLFEjzX5T8kJcguL6cuMJ4DBWMU3LQZa8YROvKGmL93rU92OmNVpkpB8fMGF11uROKXN+OUZq8Y5r6IxPvi1QNs2wbbfVbn2Gny0oBvyrfIO00tn4R32vT26oFh0Vv+Okyr4B5tY67YIFrGtqA61GY0wbWQszs35mTyV1fIkcBRfQp16UTVgMnIonZheglyzYSXDk+shodYhW8KngZhr3VQ3GWtPGiZCCQFSEEAN4pkn/fqcPIJ7T1VwqmuZyMnWYNMGoE+rDvtlIy733b7UGRIePAMp1G4Ue0lHwTPBf4Z6GDCK8v6VWvT/hsbo1rCJtimT32Oq4/u1VLli7gFyNzs6ZxAslj5ctV66ytc/B3lZcxclGSEyN4lQrFwmWOG4eutdl9CYPhPCSySW2o50BqgJl+J+se1/am93+Pt6lBGGUxGY1xWIi8HKRFQtfEZv+yMy2HhKe7w9Tzgj/lUotQr9d/HOQbWyRz4VMNQcZhsamWFD+5oPVgLI=
+    secure: kn1LpHuzeWo22QrLRD7tw+awLV/IAtg0XQmGS4UriKCIk/IV4jIQ5mYknuw1HJ2RL2D04HqB+n6/5zwrJuOytkGMiRY6ZVco1B2Sfj4t/XMpM8NitI9oM4M95oilHZ9jpS7baM/5Lj2UyZQfa+JpYHPrZ1krIxnuUupw8sxAe9FW1ITEVQn/DPaz+Qbqpq4tlIKsG7crOw0fwwRYOjS6pFTZnxvzPvaJxUAXoygPbGjmhzwT30OHHOQLQw0lao7+41BM9C/iytfRERZ07A83LwSr9BdMQfS9V6plvehIaLlrNB6RPBypi7Tocr0C6+wTrmjHUOBXKmEZ1nSsBo5NuJwicbORSA9lSwSoJVq8naX5jFNQbralEW2w5Edsw5sfrJgTvzdoUzqS7/wSBf8SwtKoV79C5Y7kiXjvBXusml3+OMU59QRDQV0RjL2guAMm33CjLRFoxz3gU4VngLqBYeiOkfo4/uWK+Q4XrzUFPxJT8m36i+WR1g1vpKQOT+1VP0wz0kcHU7xekrEMfQ+lccGTvnv+jtkA7idC63LpcuGhSqRtYv10nt4GW+OynuKQrQ2NbRdPRHpYo9BX5nUHtCyohQjzg8nd1Mmu/+Qjb4ZIuzSp8BHcouSqufuuvLYVdwGCDBAFBnD1rL3RmhWhFmmDpPK6R4IrFsGR6JsP0Ig=
+  distributions: "sdist bdist_wheel"
   on:
     tags: true
-    distributions: sdist bdist_wheel
     repo: frankV/flask-sendgrid

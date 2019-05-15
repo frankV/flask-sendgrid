@@ -9,7 +9,7 @@ from sendgrid.helpers.mail import Mail as SGMail
 from sendgrid.helpers.mail import Email, Content, Personalization
 
 
-__version__ = '0.7'
+__version__ = '0.7.1'
 __versionfull__ = __version__
 
 

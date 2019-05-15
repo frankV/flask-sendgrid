@@ -3,17 +3,10 @@ flask-sendgrid
 
 |PyPI version| |Travis Build| |Coverage Status|
 
-Flask plugin to simplify sending emails through `SendGrid`_. Adapted
-from `Flask-Mandrill`_ to make migrating from Mandrill to SendGrid
-easier for developers.
+Flask plugin for sending emails with `SendGrid`_.
 
-Now updated to support SendGrid `Web API v3`_ endpoints, including the
-new `v3 /mail/send`_. Still maintains backwards compatibility with
-Flask-Mandrill ``mail`` function.
+Provides full support for all Twilio SendGrid `Web API v3`_ endpoints, including `v3 /mail/send`_.
 
-Existing ``send_email`` method does not support all functions of the
-newly updated SendGrid Mail (``sendgrid.helpers.mail.Mail``). Full
-support will be updated in a later release.
 
 Installation
 ------------

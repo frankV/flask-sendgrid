@@ -25,11 +25,14 @@ Usage
     app = Flask(__name__)
     app.config['SENDGRID_API_KEY'] = 'your api key'
     app.config['SENDGRID_DEFAULT_FROM'] = 'admin@yourdomain.com'
+    # or app.config['SENDGRID_DEFAULT_FROM'] = ('admin@yourdomain.com', 'Admin')
+    # to use optional tuple form to change Sender Name
     mail = SendGrid(app)
 
     # send multiple recipients; backwards compatible with Flask-Mandrill
     mail.send_email(
         from_email='someone@yourdomain.com',
+        # or from_email=('someone@yourdomain.com', 'Someone'),
         to_email=[{'email': 'test1@example.com'}, {'email': 'test2@example.com'}],
         subject='Subject'
         text='Body',

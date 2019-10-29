@@ -31,7 +31,7 @@ Usage
     mail.send_email(
         from_email='someone@yourdomain.com',
         to_email=[{'email': 'test1@example.com'}, {'email': 'test2@example.com'}],
-        subject='Subject'
+        subject='Subject',
         text='Body',
     )
 
@@ -39,7 +39,7 @@ Usage
     mail.send_email(
         from_email='someone@yourdomain.com',
         to_email='test@example.com',
-        subject='Subject'
+        subject='Subject',
         text='Body',
     )
 
@@ -47,7 +47,7 @@ Usage
     mail.send_email(
         from_email='someone@yourdomain.com',
         to_email=Email('test@example.com'),
-        subject='Subject'
+        subject='Subject',
         text='Body',
     )
 
@@ -55,7 +55,7 @@ Usage
     mail.send_email(
         from_email='someone@yourdomain.com',
         to_email=[Email('test1@example.com'), Email('test2@example.com')],
-        subject='Subject'
+        subject='Subject',
         text='Body',
     )
 

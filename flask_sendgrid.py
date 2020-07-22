@@ -9,7 +9,7 @@ from sendgrid.helpers.mail import Mail as SGMail
 from sendgrid.helpers.mail import Email, Content, Personalization
 
 
-__version__ = '0.7.1'
+__version__ = '0.7.2'
 __versionfull__ = __version__
 
 
@@ -48,12 +48,20 @@ class SendGrid(SGMail):
         self.client = SendGridAPIClient(self.api_key).client
 
     def send_email(self, to_email, subject, from_email=None, html=None, text=None, *args, **kwargs):  # noqa
-        if not any([from_email, self.default_from]):
+        if from_email is not None:
+            _from_email = from_email
+        elif self.default_from is not None:
+            _from_email = self.default_from
+        else:
             raise ValueError("Missing from email and no default.")
         if not any([html, text]):
             raise ValueError("Missing html or text.")
 
-        self.from_email = Email(from_email or self.default_from)
+        if isinstance(_from_email, tuple):
+            self.from_email = Email(email=_from_email[0], name=_from_email[1])
+        else:
+            self.from_email = Email(email=_from_email)
+
         self.subject = subject
 
         personalization = Personalization()

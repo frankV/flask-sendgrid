@@ -60,7 +60,7 @@ Usage
     )
 
 
-For additional information about mail parameters: `SendGrid Web API
+For additional information about mail parameters please visit: `SendGrid Web API
 Mail`_
 
 .. _SendGrid: https://sendgrid.com/
